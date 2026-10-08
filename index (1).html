@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="JD Vance for President 2028 — Make America Greater. The working-class fighter America needs.">
+<meta property="og:title" content="JD Vance 2028 — Make America Greater">
+<meta property="og:description" content="Support JD Vance's presidential campaign. Buy merch via Spreadshirt, donate via Buy Me a Coffee, volunteer, and share.">
+<meta property="og:image" content="https://images2.imgbox.com/f9/56/05VhHhNg_o.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<title>JD Vance 2028 — Make America Greater</title>
+<style>
+/* ─────────────────────────────────────
+   RESET & TOKENS
+───────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#b91c1c;--red2:#dc2626;--red3:#ef4444;
+  --red-dim:rgba(185,28,28,.12);--red-b:rgba(185,28,28,.28);
+  --gold:#d4a843;--gold-l:#f0c96a;--gold-dim:rgba(212,168,67,.12);--gold-b:rgba(212,168,67,.22);
+  --ink:#05040a;--surface:#0a080f;--card:#100d18;--card2:#161220;
+  --border:rgba(255,255,255,.07);--red-border:rgba(185,28,28,.22);
+  --text:#cdc5d8;--muted:#6b5f7e;--white:#f2eeff;
+  --nav-h:76px;
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--ink);color:var(--text);line-height:1.7;overflow-x:hidden;cursor:none}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Syne:wght@600;700;800&family=Inter:wght@300;400;500&display=swap');
+
+/* ─────────────────────────────────────
+   CURSOR
+───────────────────────────────────── */
+.cur-dot{position:fixed;width:8px;height:8px;background:var(--red2);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s}
+.cur-ring{position:fixed;width:32px;height:32px;border:1.5px solid rgba(185,28,28,.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s,opacity .2s}
+
+/* NOISE TEXTURE */
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.7}
+
+/* PROGRESS BAR */
+.prog{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--red),var(--gold));z-index:1001;width:0;transition:width .1s linear}
+
+/* ─────────────────────────────────────
+   NAV
+───────────────────────────────────── */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:var(--nav-h);display:flex;align-items:center;padding:0 clamp(16px,5vw,64px);gap:16px;transition:background .4s,border-color .4s}
+nav.scrolled{background:rgba(5,4,10,.96);backdrop-filter:blur(24px);border-bottom:1px solid var(--red-border)}
+.nav-logo{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.nav-emblem{width:48px;height:48px;background:var(--red-dim);border:1px solid var(--red-border);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0}
+.nav-text-name{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:800;color:var(--white);letter-spacing:.03em;line-height:1.1}
+.nav-text-sub{font-family:'Syne',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red2)}
+.nav-links{display:flex;align-items:center;gap:2px;margin:0 auto}
+.nav-links a{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding:8px 16px;border-radius:8px;transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--white);background:rgba(255,255,255,.04)}
+.nav-ctas{display:flex;gap:8px;align-items:center;flex-shrink:0}
+.btn-nav{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:10px 20px;border-radius:8px;transition:all .22s;cursor:none;white-space:nowrap;border:none;display:inline-flex;align-items:center;gap:6px}
+.btn-nav-ghost{background:transparent;border:1.5px solid var(--red-border);color:var(--red2)}
+.btn-nav-ghost:hover{background:var(--red-dim)}
+.btn-nav-solid{background:var(--red);color:#fff}
+.btn-nav-solid:hover{background:var(--red2);transform:translateY(-1px);box-shadow:0 8px 24px rgba(185,28,28,.4)}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:1px solid var(--red-border);padding:9px;border-radius:8px;cursor:pointer;margin-left:auto}
+.ham span{display:block;width:18px;height:1.5px;background:var(--white);border-radius:2px;transition:all .3s}
+.ham.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.ham.open span:nth-child(2){opacity:0}
+.ham.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mob-menu{display:none;position:fixed;inset:var(--nav-h) 0 0;z-index:499;background:rgba(5,4,10,.98);backdrop-filter:blur(28px);flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:28px}
+.mob-menu.open{display:flex}
+.mob-menu a{width:100%;max-width:320px;text-align:center;padding:15px 24px;border-radius:12px;font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text);border:1px solid rgba(255,255,255,.07);transition:all .2s}
+.mob-menu a:hover{border-color:var(--red-border);color:var(--white);background:var(--red-dim)}
+.mob-menu .m-solid{background:var(--red);color:#fff;border-color:var(--red);font-weight:800}
+
+/* ─────────────────────────────────────
+   HERO
+───────────────────────────────────── */
+.hero{position:relative;min-height:100vh;padding-top:var(--nav-h);overflow:hidden;display:flex;align-items:center}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg-img{position:absolute;inset:0;background:url('https://images2.imgbox.com/f9/56/05VhHhNg_o.jpg') center/cover no-repeat;filter:grayscale(55%) contrast(1.15) brightness(.9)}
+.hero-bg-gradient{position:absolute;inset:0;background:linear-gradient(110deg,rgba(5,4,10,.97) 0%,rgba(110,10,10,.85) 55%,rgba(5,4,10,.7) 100%)}
+.hero-grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(185,28,28,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(185,28,28,.055) 1px,transparent 1px);background-size:76px 76px;mask-image:radial-gradient(ellipse 70% 80% at 5% 50%,black,transparent)}
+.hero-stars-wrap{position:absolute;inset:0;z-index:1;overflow:hidden}
+.hstar{position:absolute;width:2px;height:2px;border-radius:50%;background:rgba(255,255,255,.55);animation:twk var(--d,3s) ease-in-out infinite var(--dl,0s)}
+@keyframes twk{0%,100%{opacity:.1}50%{opacity:1}}
+.hero-inner{position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;padding:clamp(56px,8vw,100px) clamp(20px,5vw,64px)}
+.hero-eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:28px;animation:fu .7s ease both}
+.hero-eyebrow-text{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red2);white-space:nowrap}
+.hero-eyebrow-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(185,28,28,.5),transparent);max-width:200px}
+.hero-year-badge{display:inline-flex;align-items:center;gap:10px;background:var(--red);padding:8px 20px;border-radius:100px;margin-bottom:24px;animation:fu .8s .05s ease both}
+.hero-year-badge span{font-family:'Syne',sans-serif;font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,9vw,8rem);font-weight:900;color:var(--white);line-height:1.0;margin-bottom:10px;animation:fu .8s .1s ease both}
+.hero-h1 .h1-last{color:var(--red2);display:block}
+.hero-h1 .h1-role{font-style:italic;color:var(--gold);font-size:clamp(1.8rem,5vw,4.5rem);display:block;margin-top:4px}
+.hero-theme-line{font-family:'Syne',sans-serif;font-size:clamp(1rem,2.5vw,1.6rem);font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;animation:fu .8s .15s ease both;display:flex;align-items:center;gap:14px}
+.hero-theme-line::before,.hero-theme-line::after{content:'★';opacity:.5;font-size:.7em}
+.hero-desc{font-size:clamp(1rem,1.8vw,1.15rem);color:var(--text);font-weight:300;max-width:560px;line-height:1.9;margin-bottom:20px;animation:fu .8s .2s ease both}
+.hero-quote{font-family:'Playfair Display',serif;font-size:clamp(1rem,2vw,1.35rem);font-style:italic;color:var(--gold);margin-bottom:44px;animation:fu .8s .25s ease both;border-left:3px solid var(--red);padding-left:20px;opacity:.9;max-width:540px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:56px;animation:fu .8s .3s ease both}
+.btn-lg{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;border-radius:12px;font-family:'Syne',sans-serif;font-size:.85rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;transition:all .25s;cursor:none;border:none;white-space:nowrap}
+.btn-lg svg{width:18px;height:18px;fill:currentColor;flex-shrink:0;transition:transform .2s}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red2);transform:translateY(-3px);box-shadow:0 16px 40px rgba(185,28,28,.5)}
+.btn-red:hover svg{transform:translateX(4px)}
+.btn-gold{background:var(--gold);color:#000}
+.btn-gold:hover{background:var(--gold-l);transform:translateY(-3px);box-shadow:0 16px 40px rgba(212,168,67,.45)}
+.btn-ghost{background:transparent;border:1.5px solid rgba(255,255,255,.18);color:var(--white)}
+.btn-ghost:hover{border-color:var(--red2);color:var(--red2);background:var(--red-dim)}
+.hero-stats{display:flex;gap:clamp(20px,4vw,56px);flex-wrap:wrap;padding-top:36px;border-top:1px solid rgba(185,28,28,.15);animation:fu .8s .4s ease both}
+.h-stat-val{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:var(--white);line-height:1}
+.h-stat-val span{color:var(--red2)}
+.h-stat-lbl{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+@keyframes fu{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+/* ─────────────────────────────────────
+   MARQUEE
+───────────────────────────────────── */
+.marquee-wrap{background:var(--red);padding:13px 0;overflow:hidden;position:relative;z-index:2}
+.marquee-inner{display:flex;animation:mq 26s linear infinite;white-space:nowrap}
+.mq-item{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#fff;padding:0 28px;opacity:.88}
+.mq-item::after{content:'★';margin-left:28px;opacity:.35}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ─────────────────────────────────────
+   SECTION BASE
+───────────────────────────────────── */
+section{padding:clamp(80px,10vw,140px) clamp(20px,5vw,64px);position:relative;z-index:1}
+.wrap{max-width:1180px;margin:0 auto}
+.ew{display:inline-flex;align-items:center;gap:10px;margin-bottom:18px}
+.ew-l{width:24px;height:1px;background:var(--red2)}
+.ew span{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red2)}
+.sh{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.8rem);font-weight:700;color:var(--white);line-height:1.1;margin-bottom:14px}
+.sh em{color:var(--red2);font-style:italic}
+.sh-gold em{color:var(--gold)}
+.sp{font-size:clamp(.92rem,1.6vw,1.05rem);color:var(--muted);font-weight:300;line-height:1.9;max-width:600px}
+
+/* ─────────────────────────────────────
+   ABOUT
+───────────────────────────────────── */
+.about-sec{background:var(--surface)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.about-visual{position:relative}
+.about-img-box{border-radius:24px;overflow:hidden;border:1px solid var(--red-border);aspect-ratio:3/4;background:linear-gradient(135deg,var(--card) 0%,var(--card2) 100%);display:flex;align-items:center;justify-content:center;position:relative}
+.about-monogram{font-family:'Playfair Display',serif;font-size:8rem;font-weight:900;color:rgba(185,28,28,.15);letter-spacing:-.05em;user-select:none;line-height:1}
+.about-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,4,10,.7) 0%,transparent 50%)}
+.about-badge{position:absolute;bottom:24px;left:24px;background:rgba(5,4,10,.92);border:1px solid var(--red-border);backdrop-filter:blur(16px);border-radius:14px;padding:16px 22px}
+.about-badge-party{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red2);margin-bottom:4px}
+.about-badge-name{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--white);line-height:1.1}
+.about-badge-state{font-size:.75rem;color:var(--muted);margin-top:3px}
+.about-facts{display:flex;flex-direction:column;gap:16px;margin-top:32px}
+.about-fact{display:flex;align-items:flex-start;gap:16px;padding:20px;background:var(--card);border:1px solid var(--border);border-radius:14px;transition:border-color .3s,transform .3s}
+.about-fact:hover{border-color:var(--red-border);transform:translateX(6px)}
+.about-fact-icon{width:40px;height:40px;border-radius:10px;background:var(--red-dim);border:1px solid var(--red-border);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.about-fact h3{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;color:var(--white);margin-bottom:4px}
+.about-fact p{font-size:.82rem;color:var(--muted);line-height:1.7}
+
+/* ─────────────────────────────────────
+   THEME BANNER
+───────────────────────────────────── */
+.theme-banner{background:linear-gradient(135deg,var(--red) 0%,#7f1d1d 100%);padding:clamp(48px,6vw,80px) clamp(20px,5vw,64px);text-align:center;position:relative;overflow:hidden;z-index:1}
+.theme-banner::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.6' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");pointer-events:none}
+.theme-banner-stars{font-size:2rem;letter-spacing:.1em;margin-bottom:12px;opacity:.6}
+.theme-banner h2{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,7vw,6rem);font-weight:900;color:#fff;line-height:1.0;margin-bottom:12px}
+.theme-banner h2 em{font-style:italic;color:var(--gold)}
+.theme-banner p{font-family:'Syne',sans-serif;font-size:clamp(.8rem,1.5vw,1rem);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:32px}
+.theme-banner-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-white{background:#fff;color:var(--red);font-family:'Syne',sans-serif;font-size:.82rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:14px 28px;border-radius:10px;border:none;cursor:none;display:inline-flex;align-items:center;gap:8px;transition:all .22s}
+.btn-white:hover{background:var(--gold);color:#000;transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.3)}
+.btn-white-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4);font-family:'Syne',sans-serif;font-size:.82rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:14px 28px;border-radius:10px;cursor:none;display:inline-flex;align-items:center;gap:8px;transition:all .22s}
+.btn-white-ghost:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+
+/* ─────────────────────────────────────
+   PLATFORM
+───────────────────────────────────── */
+.platform-sec{background:var(--ink)}
+.platform-header{text-align:center;margin-bottom:60px}
+.platform-header .sp{margin:0 auto}
+.platform-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--red-border);border:1px solid var(--red-border);border-radius:24px;overflow:hidden}
+.plat-cell{background:var(--card);padding:clamp(24px,3.5vw,44px);transition:background .3s;display:flex;flex-direction:column;gap:14px}
+.plat-cell:hover{background:var(--card2)}
+.plat-icon{font-size:2rem}
+.plat-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;color:var(--red);opacity:.13;line-height:1}
+.plat-cell h3{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;color:var(--white);letter-spacing:.01em}
+.plat-cell p{font-size:.83rem;color:var(--muted);line-height:1.8;flex:1}
+
+/* ─────────────────────────────────────
+   SUPPORT HUB
+───────────────────────────────────── */
+.support-sec{background:var(--surface)}
+.support-intro{text-align:center;margin-bottom:60px}
+.support-intro .sp{margin:0 auto}
+.support-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.sup-card{background:var(--card);border:1px solid var(--border);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;position:relative;transition:transform .35s,border-color .35s,box-shadow .35s}
+.sup-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.sup-shirt::before{background:linear-gradient(90deg,var(--red),var(--red2))}
+.sup-donate::before{background:linear-gradient(90deg,#ff6b35,#ff8c42)}
+.sup-campaign::before{background:linear-gradient(90deg,var(--gold),var(--gold-l))}
+.sup-share::before{background:linear-gradient(90deg,#3b82f6,#60a5fa)}
+.sup-card:hover{transform:translateY(-8px);box-shadow:0 28px 60px rgba(0,0,0,.5);border-color:var(--red-border)}
+.sup-card-top{padding:32px 32px 0}
+.sup-card-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:18px}
+.icon-shirt{background:var(--red-dim);border:1px solid var(--red-border)}
+.icon-donate{background:rgba(255,107,53,.12);border:1px solid rgba(255,107,53,.25)}
+.icon-campaign{background:var(--gold-dim);border:1px solid var(--gold-b)}
+.icon-share{background:rgba(59,130,246,.12);border:1px solid rgba(59,130,246,.25)}
+.sup-card-tag{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+.tag-red{color:var(--red2)}.tag-gold{color:var(--gold)}.tag-orange{color:#ff8c42}.tag-blue{color:#60a5fa}
+.sup-card h2{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:700;color:var(--white);line-height:1.2;margin-bottom:10px}
+.sup-card>p,.sup-card-top>p{font-size:.88rem;color:var(--muted);line-height:1.8;font-weight:300;padding:0 32px}
+.sup-card-body{padding:24px 32px;flex:1;display:flex;flex-direction:column;gap:14px}
+
+/* SHIRT ITEMS */
+.shirt-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.shirt-item{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:14px 10px;text-align:center;cursor:none;transition:all .25s;appearance:none;width:100%}
+.shirt-item:hover{border-color:var(--red-border);transform:translateY(-3px);background:rgba(185,28,28,.08)}
+.shirt-item svg{width:100%;height:60px;margin-bottom:8px}
+.shirt-name{font-family:'Syne',sans-serif;font-size:.66rem;font-weight:700;color:var(--text);letter-spacing:.02em}
+.shirt-price{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--gold);margin-top:3px}
+.shirt-cta{display:flex;gap:10px}
+.trust-pills{display:flex;flex-wrap:wrap;gap:6px}
+.trust-pill{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:600;color:var(--muted);background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);padding:5px 10px;border-radius:100px}
+
+/* DONATE TIERS */
+.donate-tiers{display:flex;flex-direction:column;gap:8px}
+.d-tier{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:14px 16px;cursor:none;transition:all .25s}
+.d-tier:hover{border-color:rgba(255,107,53,.4);background:rgba(255,107,53,.06);transform:translateX(5px)}
+.d-tier-left{display:flex;align-items:center;gap:12px}
+.d-tier-icon{font-size:1.2rem}
+.d-tier-info strong{display:block;font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;color:var(--white)}
+.d-tier-info span{font-size:.74rem;color:var(--muted)}
+.d-tier-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.d-tier-amount{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#ff8c42}
+.d-tier-arrow{color:var(--muted);transition:transform .2s,color .2s}
+.d-tier:hover .d-tier-arrow{transform:translateX(4px);color:#ff8c42}
+.bmc-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:15px;background:linear-gradient(135deg,#ff6b35,#ff8c42);color:#fff;border:none;border-radius:10px;font-family:'Syne',sans-serif;font-size:.8rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;cursor:none;transition:all .25s}
+.bmc-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(255,107,53,.45)}
+.bmc-note{font-size:.72rem;color:var(--muted);text-align:center;line-height:1.6}
+.bmc-note code{background:rgba(255,255,255,.07);padding:2px 7px;border-radius:4px;font-size:.7rem;color:var(--text)}
+
+/* CAMPAIGN STEPS */
+.c-steps{display:flex;flex-direction:column;gap:10px}
+.c-step{display:flex;align-items:flex-start;gap:14px;background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:14px 16px;transition:border-color .2s}
+.c-step:hover{border-color:var(--gold-b)}
+.c-step-num{width:30px;height:30px;border-radius:50%;background:var(--gold-dim);border:1px solid var(--gold-b);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:.7rem;font-weight:800;color:var(--gold);flex-shrink:0;margin-top:2px}
+.c-step-text strong{display:block;font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;color:var(--white);margin-bottom:2px}
+.c-step-text span{font-size:.8rem;color:var(--muted)}
+
+/* SHARE */
+.share-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.share-btn{display:flex;align-items:center;gap:9px;padding:12px 14px;border-radius:10px;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;cursor:none;transition:all .22s;border:none}
+.share-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
+.s-tw{background:#000;color:#fff}.s-tw:hover{background:#111;transform:translateY(-2px)}
+.s-fb{background:#1877f2;color:#fff}.s-fb:hover{background:#1565c0;transform:translateY(-2px)}
+.s-wa{background:#25d366;color:#fff}.s-wa:hover{background:#1eba57;transform:translateY(-2px)}
+.s-tg{background:#2aabee;color:#fff}.s-tg:hover{background:#1b96d5;transform:translateY(-2px)}
+.s-em{background:var(--card2);border:1px solid var(--border);color:var(--text)}.s-em:hover{border-color:var(--red-border);color:var(--white)}
+.s-cp{background:var(--red-dim);border:1px solid var(--red-border);color:var(--red2)}.s-cp:hover{background:rgba(185,28,28,.22)}
+.share-copy-row{display:flex;gap:8px}
+.share-copy-row input{flex:1;background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:.8rem;color:var(--text);font-family:inherit;outline:none;transition:border-color .2s;min-width:0}
+.share-copy-row input:focus{border-color:var(--red-border)}
+.share-copy-row button{padding:10px 16px;background:var(--red);color:#fff;border:none;border-radius:8px;font-family:'Syne',sans-serif;font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;cursor:none;transition:all .2s;white-space:nowrap}
+.share-copy-row button:hover{background:var(--red2)}
+
+/* ALL AT ONCE PANEL */
+.all-panel{background:var(--card);border:1px solid var(--red-border);border-radius:24px;padding:clamp(32px,5vw,56px);margin-top:24px;position:relative;overflow:hidden;text-align:center}
+.all-panel::before{content:'';position:absolute;top:-50%;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(185,28,28,.07) 0%,transparent 65%);pointer-events:none}
+.all-panel-star{font-size:2rem;margin-bottom:12px}
+.all-panel h3{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;color:var(--white);margin-bottom:8px}
+.all-panel p{font-size:.9rem;color:var(--muted);max-width:560px;margin:0 auto 36px;line-height:1.7}
+.all-panel-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.fp-action{display:flex;flex-direction:column;align-items:center;gap:10px;padding:22px 12px;background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:14px;cursor:none;transition:all .25s}
+.fp-action:hover{border-color:var(--red-border);background:var(--red-dim);transform:translateY(-5px)}
+.fp-icon{font-size:1.8rem}
+.fp-label{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--white)}
+.fp-desc{font-size:.68rem;color:var(--muted);text-align:center;line-height:1.4}
+
+/* ─────────────────────────────────────
+   POLL
+───────────────────────────────────── */
+.poll-sec{background:var(--ink)}
+.poll-header{text-align:center;margin-bottom:48px}
+.poll-header .sp{margin:0 auto}
+.poll-card{background:var(--card);border:1px solid var(--red-border);border-radius:24px;overflow:hidden;max-width:680px;margin:0 auto}
+.poll-card-top{padding:40px 44px;text-align:center;background:linear-gradient(180deg,rgba(185,28,28,.1) 0%,transparent 100%)}
+.poll-pct{font-family:'Playfair Display',serif;font-size:clamp(3.5rem,8vw,5.5rem);font-weight:900;color:var(--red2);line-height:1}
+.poll-lbl{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.poll-count{font-size:.8rem;color:var(--muted);margin-top:6px}
+.poll-bar-wrap{height:6px;background:rgba(255,255,255,.06)}
+.poll-bar-fill{height:100%;background:linear-gradient(90deg,var(--red),var(--red2));transition:width 1.4s cubic-bezier(.4,0,.2,1)}
+.poll-btns{padding:28px 40px;border-top:1px solid var(--border);display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.pvb{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:14px 30px;border-radius:10px;border:none;cursor:none;transition:all .25s}
+.pvb-yes{background:var(--red);color:#fff}.pvb-yes:hover{background:var(--red2);transform:translateY(-2px);box-shadow:0 10px 24px rgba(185,28,28,.45)}
+.pvb-no{background:transparent;border:1.5px solid var(--border);color:var(--muted)}.pvb-no:hover{border-color:var(--red-border);color:var(--text)}
+
+/* ─────────────────────────────────────
+   SPREADSHIRT DRAWER
+───────────────────────────────────── */
+.ss-overlay{position:fixed;inset:0;z-index:900;background:rgba(0,0,0,.82);backdrop-filter:blur(12px);opacity:0;pointer-events:none;transition:opacity .35s}
+.ss-overlay.open{opacity:1;pointer-events:all}
+.ss-drawer{position:fixed;bottom:0;left:0;right:0;z-index:901;background:var(--card);border-top:1px solid var(--red-border);border-radius:28px 28px 0 0;max-height:92vh;display:flex;flex-direction:column;transform:translateY(100%);transition:transform .4s cubic-bezier(.32,1,.6,1)}
+.ss-drawer.open{transform:translateY(0)}
+.ss-handle{width:48px;height:4px;background:rgba(255,255,255,.1);border-radius:2px;margin:14px auto 0;flex-shrink:0}
+.ss-head{padding:18px 28px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.ss-head-l{display:flex;align-items:center;gap:14px}
+.ss-head-icon{width:44px;height:44px;border-radius:10px;background:var(--red-dim);border:1px solid var(--red-border);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.ss-head h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--white);margin-bottom:2px}
+.ss-head p{font-size:.75rem;color:var(--muted)}
+.ss-close{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--muted);cursor:none;display:flex;align-items:center;justify-content:center;transition:all .2s;font-size:.9rem}
+.ss-close:hover{background:rgba(255,255,255,.1);color:var(--white)}
+.ss-tabs{display:flex;border-bottom:1px solid var(--border);padding:0 28px;flex-shrink:0;overflow-x:auto}
+.ss-tab{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:12px 18px;border-bottom:2px solid transparent;cursor:none;transition:color .2s,border-color .2s;background:none;border-top:none;border-left:none;border-right:none;white-space:nowrap}
+.ss-tab.active{color:var(--red2);border-bottom-color:var(--red2)}
+.ss-body{flex:1;overflow-y:auto;padding:24px 28px;display:flex;flex-direction:column;gap:20px}
+.ss-iframe-box{border-radius:14px;overflow:hidden;border:1px solid var(--border);min-height:480px;position:relative;background:var(--card2)}
+.ss-iframe-box iframe{width:100%;height:560px;border:none;display:block}
+.ss-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:32px}
+.ss-placeholder .pl-icon{font-size:3rem}
+.ss-placeholder h4{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--white)}
+.ss-placeholder p{font-size:.85rem;color:var(--muted);max-width:380px;line-height:1.8}
+.ss-direct-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.ss-dc{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px;transition:all .25s}
+.ss-dc:hover{border-color:var(--red-border);transform:translateY(-3px)}
+.ss-dc svg{width:100%;height:66px}
+.ss-dc-name{font-family:'Syne',sans-serif;font-size:.75rem;font-weight:700;color:var(--white)}
+.ss-dc-price{font-family:'Playfair Display',serif;font-size:1rem;color:var(--gold)}
+.ss-dc-cta{display:flex;align-items:center;justify-content:center;gap:6px;padding:9px;border-radius:8px;background:var(--red);color:#fff;font-family:'Syne',sans-serif;font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-top:auto}
+.ss-setup-box{background:var(--gold-dim);border:1px solid var(--gold-b);border-radius:12px;padding:22px}
+.ss-setup-box h5{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.ss-setup-box ol{padding-left:18px;display:flex;flex-direction:column;gap:9px}
+.ss-setup-box li{font-size:.84rem;color:var(--muted);line-height:1.7}
+.ss-setup-box li strong{color:var(--text)}
+.ss-setup-box a{color:var(--gold)}
+.ss-setup-box code{background:rgba(255,255,255,.07);padding:2px 8px;border-radius:4px;font-size:.78rem;color:var(--white);font-family:monospace}
+.ss-url-section{margin-top:16px}
+.ss-url-section label{display:block;font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.ss-url-row{display:flex;gap:10px}
+.ss-url-row input{flex:1;background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:11px 14px;font-size:.85rem;color:var(--white);font-family:inherit;outline:none;transition:border-color .2s;min-width:0}
+.ss-url-row input:focus{border-color:var(--gold)}
+.ss-url-row button{padding:11px 18px;background:var(--gold);color:#000;border:none;border-radius:10px;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;cursor:none;white-space:nowrap;transition:all .2s}
+.ss-url-row button:hover{background:var(--gold-l)}
+.ss-url-note{font-size:.73rem;color:var(--muted);margin-top:7px}
+.ss-success-note{margin-top:16px;padding:16px 18px;background:rgba(75,162,97,.07);border:1px solid rgba(75,162,97,.22);border-radius:12px;font-size:.82rem;color:var(--muted);line-height:1.7}
+.ss-success-note strong{color:#4ba261}
+.ss-direct-intro{font-size:.84rem;color:var(--muted);line-height:1.7;margin-bottom:16px}
+.ss-direct-note{font-size:.75rem;color:var(--muted);line-height:1.6;margin-top:14px}
+
+/* ─────────────────────────────────────
+   TIMED ENGAGEMENT POPUP
+───────────────────────────────────── */
+.tp-overlay{position:fixed;inset:0;z-index:1100;background:rgba(0,0,0,.78);backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .4s ease}
+.tp-overlay.open{opacity:1;pointer-events:all}
+.tp-modal{background:var(--card);border:1px solid var(--red-border);border-radius:24px;width:100%;max-width:520px;overflow:hidden;position:relative;transform:scale(.88) translateY(24px);transition:transform .4s cubic-bezier(.34,1.2,.64,1),opacity .35s ease;opacity:0;box-shadow:0 40px 100px rgba(0,0,0,.8)}
+.tp-overlay.open .tp-modal{transform:scale(1) translateY(0);opacity:1}
+/* red top accent */
+.tp-accent{height:4px;background:linear-gradient(90deg,var(--red),var(--gold),var(--red2));background-size:200% 100%;animation:shimmer 3s linear infinite}
+@keyframes shimmer{0%{background-position:0% 0}100%{background-position:200% 0}}
+/* close */
+.tp-close{position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid var(--border);color:var(--muted);font-size:.85rem;display:flex;align-items:center;justify-content:center;cursor:none;transition:all .2s;z-index:1}
+.tp-close:hover{background:rgba(255,255,255,.12);color:var(--white);transform:rotate(90deg)}
+/* countdown ring */
+.tp-timer-wrap{display:flex;justify-content:center;padding:28px 0 0}
+.tp-ring{position:relative;width:72px;height:72px}
+.tp-ring svg{transform:rotate(-90deg)}
+.tp-ring-bg{fill:none;stroke:rgba(255,255,255,.06);stroke-width:4}
+.tp-ring-fill{fill:none;stroke:var(--red2);stroke-width:4;stroke-linecap:round;stroke-dasharray:188.5;stroke-dashoffset:0;transition:stroke-dashoffset 1s linear}
+.tp-ring-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--white)}
+/* content */
+.tp-body{padding:24px 32px 32px;text-align:center}
+.tp-flag{font-size:2rem;margin-bottom:12px;display:block}
+.tp-eyebrow{font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red2);margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:8px}
+.tp-eyebrow::before,.tp-eyebrow::after{content:'★';opacity:.4;font-size:.6em}
+.tp-h{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,4vw,2rem);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:10px}
+.tp-h em{color:var(--red2);font-style:italic}
+.tp-sub{font-size:.88rem;color:var(--muted);line-height:1.8;margin-bottom:28px;max-width:380px;margin-left:auto;margin-right:auto}
+/* action buttons */
+.tp-actions{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.tp-btn{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px;border-radius:12px;font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;cursor:none;transition:all .25s;border:none;width:100%}
+.tp-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
+.tp-btn-arrow{opacity:.5;font-size:.8rem}
+.tp-btn-red{background:var(--red);color:#fff}
+.tp-btn-red:hover{background:var(--red2);transform:translateX(4px);box-shadow:0 8px 24px rgba(185,28,28,.4)}
+.tp-btn-gold{background:var(--gold);color:#000}
+.tp-btn-gold:hover{background:var(--gold-l);transform:translateX(4px);box-shadow:0 8px 24px rgba(212,168,67,.35)}
+.tp-btn-ghost{background:transparent;border:1.5px solid rgba(255,255,255,.12);color:var(--text)}
+.tp-btn-ghost:hover{border-color:var(--red-border);color:var(--white);transform:translateX(4px)}
+.tp-btn-green{background:rgba(37,211,102,.12);border:1.5px solid rgba(37,211,102,.25);color:#25d366}
+.tp-btn-green:hover{background:rgba(37,211,102,.2);transform:translateX(4px)}
+/* share row */
+.tp-share-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding-top:16px;border-top:1px solid rgba(255,255,255,.06)}
+.tp-share-pill{display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:100px;font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:none;transition:all .2s;border:none}
+.tp-share-pill svg{width:13px;height:13px;fill:currentColor;flex-shrink:0}
+.tp-s-tw{background:#000;color:#fff}.tp-s-tw:hover{background:#111}
+.tp-s-fb{background:#1877f2;color:#fff}.tp-s-fb:hover{background:#1565c0}
+.tp-s-wa{background:#25d366;color:#fff}.tp-s-wa:hover{background:#1eba57}
+.tp-s-cp{background:var(--red-dim);border:1px solid var(--red-border);color:var(--red2)}.tp-s-cp:hover{background:rgba(185,28,28,.2)}
+/* dismiss link */
+.tp-dismiss{display:block;text-align:center;font-size:.75rem;color:var(--muted);cursor:none;margin-top:16px;transition:color .2s;background:none;border:none;width:100%}
+.tp-dismiss:hover{color:var(--text)}
+/* mobile */
+@media(max-width:480px){
+  .tp-modal{border-radius:20px 20px 0 0;position:fixed;bottom:0;left:0;right:0;max-width:100%}
+  .tp-overlay{align-items:flex-end;padding:0}
+  .tp-body{padding:20px 24px 28px}
+  .tp-h{font-size:1.4rem}
+}
+
+/* ─────────────────────────────────────
+   FOOTER
+───────────────────────────────────── */
+footer{background:var(--surface);border-top:1px solid var(--red-border);padding:clamp(56px,7vw,90px) clamp(20px,5vw,64px) 28px;position:relative;z-index:1}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;max-width:1180px;margin:0 auto 52px}
+.foot-logo{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.foot-logo-emblem{width:42px;height:42px;background:var(--red-dim);border:1px solid var(--red-border);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.foot-logo-text{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;color:var(--white)}
+.foot-logo-text em{color:var(--red2);font-style:normal}
+.foot-brand p{font-size:.83rem;color:var(--muted);line-height:1.8;max-width:250px;margin-bottom:16px}
+.foot-socials{display:flex;gap:8px;flex-wrap:wrap}
+.foot-socials a{width:34px;height:34px;border-radius:8px;border:1px solid rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;transition:all .2s}
+.foot-socials a:hover{border-color:var(--red-border);background:var(--red-dim)}
+.foot-socials svg{width:14px;height:14px;fill:var(--muted);transition:fill .2s}
+.foot-socials a:hover svg{fill:var(--red2)}
+.foot-col h4{font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red2);margin-bottom:18px}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.foot-col ul a{font-size:.83rem;color:var(--muted);transition:color .2s}
+.foot-col ul a:hover{color:var(--white)}
+.foot-bottom{max-width:1180px;margin:0 auto;padding-top:24px;border-top:1px solid rgba(255,255,255,.05);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+.foot-bottom p{font-size:.76rem;color:var(--muted)}
+.foot-disclaimer{font-size:.72rem;color:var(--muted);opacity:.6}
+
+/* ─────────────────────────────────────
+   FLOATING BAR
+───────────────────────────────────── */
+.float-bar{position:fixed;bottom:clamp(14px,3vw,28px);left:50%;transform:translateX(-50%);z-index:400;background:rgba(5,4,10,.94);border:1px solid var(--red-border);backdrop-filter:blur(20px);border-radius:100px;padding:10px 16px;display:flex;gap:8px;align-items:center;box-shadow:0 8px 32px rgba(0,0,0,.6)}
+.fb-btn{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:100px;font-family:'Syne',sans-serif;font-size:.7rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;cursor:none;transition:all .22s;border:none;white-space:nowrap}
+.fb-btn svg{width:15px;height:15px;fill:currentColor;flex-shrink:0}
+.fb-red{background:var(--red);color:#fff}.fb-red:hover{background:var(--red2);box-shadow:0 6px 20px rgba(185,28,28,.55)}
+.fb-gold{background:var(--gold);color:#000}.fb-gold:hover{background:var(--gold-l);box-shadow:0 6px 20px rgba(212,168,67,.4)}
+.fb-ghost{background:rgba(255,255,255,.06);color:var(--text);border:1px solid rgba(255,255,255,.1)}.fb-ghost:hover{background:rgba(255,255,255,.1);color:var(--white)}
+.fb-div{width:1px;height:28px;background:rgba(255,255,255,.1);flex-shrink:0}
+
+/* ─────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────── */
+@media(max-width:1100px){.platform-grid{grid-template-columns:repeat(2,1fr)}.all-panel-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:1024px){.foot-grid{grid-template-columns:1fr 1fr;gap:32px}.about-grid{grid-template-columns:1fr;gap:48px}}
+@media(max-width:900px){.support-grid{grid-template-columns:1fr}.all-panel-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:768px){.nav-links,.nav-ctas{display:none}.ham{display:flex}.platform-grid{grid-template-columns:1fr}.hero-stats{gap:24px}.float-bar{padding:8px 10px;gap:6px}.fb-btn span{display:none}.fb-btn{padding:10px;border-radius:50%;width:42px;height:42px;justify-content:center}.fb-div{display:none}.foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.support-grid{grid-template-columns:1fr}.all-panel-grid{grid-template-columns:repeat(2,1fr)}.shirt-row{grid-template-columns:1fr 1fr}.share-grid{grid-template-columns:1fr}.hero-actions{flex-direction:column}.foot-grid{grid-template-columns:1fr}.theme-banner-btns{flex-direction:column;align-items:center}.poll-btns{flex-direction:column}}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cur-dot" id="dot"></div>
+<div class="cur-ring" id="ring"></div>
+<div class="prog" id="prog"></div>
+
+<!-- ══════════════════════ NAV ══════════════════════ -->
+<nav id="nav">
+  <a href="#home" class="nav-logo">
+    <div class="nav-emblem">🦅</div>
+    <div>
+      <div class="nav-text-name">JD Vance</div>
+      <div class="nav-text-sub">Republican · President 2028</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#about">About JD</a>
+    <a href="#platform">Platform</a>
+    <a href="#support">Support</a>
+    <a href="#poll">Poll</a>
+  </div>
+  <div class="nav-ctas">
+    <a href="#support" class="btn-nav btn-nav-ghost">Donate</a>
+    <a href="#support" class="btn-nav btn-nav-solid">★ Support JD</a>
+  </div>
+  <button class="ham" id="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mob">
+  <a href="#about"    onclick="closeMob()">About JD Vance</a>
+  <a href="#platform" onclick="closeMob()">Campaign Platform</a>
+  <a href="#support"  onclick="openShirtDrawer('all');closeMob()">Buy Merch</a>
+  <a href="#support"  onclick="closeMob()">Donate</a>
+  <a href="#poll"     onclick="closeMob()">Cast Your Vote</a>
+  <a href="#support"  onclick="closeMob()" class="m-solid">★ Support JD Now</a>
+</div>
+
+<!-- ══════════════════════ HERO ══════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="hero-bg-img"></div>
+    <div class="hero-bg-gradient"></div>
+    <div class="hero-grid-lines"></div>
+  </div>
+  <div class="hero-stars-wrap" id="heroStars" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span style="font-size:1.3rem">🇺🇸</span>
+      <span class="hero-eyebrow-text">Republican Party · Presidential Campaign 2028</span>
+      <div class="hero-eyebrow-line"></div>
+    </div>
+    <div class="hero-year-badge">
+      <span>★ Vance 2028 ★</span>
+    </div>
+    <h1 class="hero-h1">
+      JD<span class="h1-last"> Vance</span>
+      <em class="h1-role">for President</em>
+    </h1>
+    <div class="hero-theme-line">Make America Greater</div>
+    <p class="hero-desc">From the steel mills of Middletown, Ohio to the United States Senate — JD Vance is the working-class fighter America needs. He lived the American Dream, defended it as a Marine, wrote about it for the world, and now he's ready to lead it.</p>
+    <blockquote class="hero-quote">"We are not going to let the radical left destroy the country our grandparents built. We are going to make America greater than it has ever been."</blockquote>
+    <div class="hero-actions">
+      <a href="#support" class="btn-lg btn-red">
+        <svg viewBox="0 0 24 24"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/></svg>
+        Support JD Vance
+      </a>
+      <a href="#" onclick="openShirtDrawer('all');return false;" class="btn-lg btn-gold">
+        <svg viewBox="0 0 24 24"><path d="M19 7h-14v13a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-13zm-7-4a3 3 0 0 0-3 3h6a3 3 0 0 0-3-3zm-5 3a5 5 0 0 1 10 0"/></svg>
+        Shop Campaign Gear
+      </a>
+      <a href="#platform" class="btn-lg btn-ghost">Read the Platform →</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="h-stat-val">US<span></span></div><div class="h-stat-lbl">Senator, Ohio</div></div>
+      <div><div class="h-stat-val"><span>VP</span></div><div class="h-stat-lbl">2024 Running Mate</div></div>
+      <div><div class="h-stat-val"><span>6</span></div><div class="h-stat-lbl">Policy Pillars</div></div>
+      <div><div class="h-stat-val"><span>50</span></div><div class="h-stat-lbl">States Campaigning</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-inner">
+    <span class="mq-item">Vance 2028</span><span class="mq-item">Make America Greater</span>
+    <span class="mq-item">Working Class Values</span><span class="mq-item">Republican Nominee</span>
+    <span class="mq-item">Ohio Made</span><span class="mq-item">Border Security</span>
+    <span class="mq-item">Hillbilly Elegy</span><span class="mq-item">America First</span>
+    <span class="mq-item">Vance 2028</span><span class="mq-item">Make America Greater</span>
+    <span class="mq-item">Working Class Values</span><span class="mq-item">Republican Nominee</span>
+    <span class="mq-item">Ohio Made</span><span class="mq-item">Border Security</span>
+    <span class="mq-item">Hillbilly Elegy</span><span class="mq-item">America First</span>
+  </div>
+</div>
+
+<!-- ══════════════════════ ABOUT ══════════════════════ -->
+<section class="about-sec" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-visual">
+        <div class="about-img-box">
+          <div class="about-monogram">JDV</div>
+          <div class="about-overlay"></div>
+          <div class="about-badge">
+            <div class="about-badge-party">🔴 Republican Party</div>
+            <div class="about-badge-name">JD Vance</div>
+            <div class="about-badge-state">US Vice President</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="ew"><div class="ew-l"></div><span>The Candidate</span></div>
+        <h2 class="sh">From Middletown<br>to the <em>White House</em></h2>
+        <p class="sp" style="margin-bottom:10px">JD Vance grew up in the working-class hills of Appalachian Ohio. He watched his community hollowed out by deindustrialisation and opioid addiction — and he never forgot where he came from.</p>
+        <p class="sp" style="margin-bottom:28px">He served as a US Marine, earned a Yale law degree, wrote the bestselling memoir <em>Hillbilly Elegy</em>, won the Ohio Senate seat in 2022, and served as Donald Trump's 2024 running mate. Now he's running to Make America Greater.</p>
+        <div class="about-facts">
+          <div class="about-fact"><div class="about-fact-icon">🎖️</div><div><h3>US Marine Corps Veteran</h3><p>Served after 9/11. Knows what sacrifice and duty to country mean in his bones.</p></div></div>
+          <div class="about-fact"><div class="about-fact-icon">📘</div><div><h3>Bestselling Author — Hillbilly Elegy</h3><p>A memoir that gave voice to millions of forgotten working-class Americans and sparked a national conversation.</p></div></div>
+          <div class="about-fact"><div class="about-fact-icon">⚖️</div><div><h3>US Senator, Ohio — Elected 2022</h3><p>Fighting every day in Washington for Ohio workers, families, and the America First agenda.</p></div></div>
+          <div class="about-fact"><div class="about-fact-icon">🏛️</div><div><h3>2024 Vice Presidential Nominee</h3><p>Donald Trump's chosen running mate — the torchbearer of the America First conservative movement into 2028.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ THEME BANNER ══════════════════════ -->
+<div class="theme-banner">
+  <div class="theme-banner-stars">★ ★ ★ ★ ★</div>
+  <h2>Make America<br><em>Greater</em></h2>
+  <p>JD Vance · Republican · 2028</p>
+  <div class="theme-banner-btns">
+    <a href="#support" class="btn-white">★ Support the Campaign</a>
+    <a href="#" onclick="openShirtDrawer('all');return false;" class="btn-white-ghost">🛒 Shop Official Merch</a>
+    <a href="#platform" class="btn-white-ghost">Read the Platform →</a>
+  </div>
+</div>
+
+<!-- ══════════════════════ PLATFORM ══════════════════════ -->
+<section class="platform-sec" id="platform">
+  <div class="wrap">
+    <div class="platform-header">
+      <div class="ew" style="justify-content:center"><div class="ew-l"></div><span>The Platform</span></div>
+      <h2 class="sh" style="text-align:center">Six Pillars of <em>Make America Greater</em></h2>
+      <p class="sp" style="text-align:center;margin:0 auto">A bold, clear agenda for working families, national security, and American sovereignty.</p>
+    </div>
+    <div class="platform-grid">
+      <div class="plat-cell"><div class="plat-icon">🏭</div><div class="plat-num">01</div><h3>Rebuild American Manufacturing</h3><p>Bring jobs home. Tariffs on China. Tax incentives for domestic production. Revive the Rust Belt and every community that globalism abandoned.</p></div>
+      <div class="plat-cell"><div class="plat-icon">🛡️</div><div class="plat-num">02</div><h3>Secure the Border — For Good</h3><p>Finish the wall. End catch-and-release. Deport criminal aliens. Zero amnesty. America's border is a national security matter — full stop.</p></div>
+      <div class="plat-cell"><div class="plat-icon">💰</div><div class="plat-num">03</div><h3>Economic Freedom</h3><p>Cut taxes on working families. Slash regulatory red tape. Stop shipping American wealth overseas. Put Main Street ahead of Wall Street.</p></div>
+      <div class="plat-cell"><div class="plat-icon">🎓</div><div class="plat-num">04</div><h3>Education for Families</h3><p>School choice. Vocational training. End left-wing indoctrination. Return curriculum control to parents and local communities — not federal bureaucrats.</p></div>
+      <div class="plat-cell"><div class="plat-icon">⚖️</div><div class="plat-num">05</div><h3>Law &amp; Order</h3><p>Back the blue. Fund police. Mandatory sentencing for violent crime. Shut down the radical DA experiment destroying American cities.</p></div>
+      <div class="plat-cell"><div class="plat-icon">🌍</div><div class="plat-num">06</div><h3>America First Foreign Policy</h3><p>No more endless wars. No more nation-building. Strong military. American interests first in every negotiation — not globalist institutions.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ SUPPORT HUB ══════════════════════ -->
+<section class="support-sec" id="support">
+  <div class="wrap">
+    <div class="support-intro">
+      <div class="ew" style="justify-content:center"><div class="ew-l"></div><span>How to Support</span></div>
+      <h2 class="sh sh-gold" style="text-align:center">Every Action <em>Counts</em></h2>
+      <p class="sp" style="margin:0 auto 0">Four powerful ways to support JD Vance — and you can do all of them simultaneously.</p>
+    </div>
+
+    <div class="support-grid">
+
+      <!-- ── SHIRT CARD ── -->
+      <div class="sup-card sup-shirt">
+        <div class="sup-card-top">
+          <div class="sup-card-icon icon-shirt">👕</div>
+          <div class="sup-card-tag tag-red">Official Merch · Via Spreadshirt</div>
+          <h2>Wear Your Support</h2>
+          <p>Premium Vance 2028 shirts, hoodies &amp; hats. Printed on demand by Spreadshirt. Ethically made. Ships worldwide in 5–7 days.</p>
+        </div>
+        <div class="sup-card-body">
+          <div class="shirt-row">
+            <button class="shirt-item" onclick="openShirtDrawer('s1')">
+              <svg viewBox="0 0 120 80"><path d="M22 8 L6 22 L18 26 L16 62 L76 62 L74 26 L86 22 L70 8 L58 15 Q42 22 32 15 Z" fill="#b91c1c" stroke="#dc2626" stroke-width="1"/><text x="46" y="36" text-anchor="middle" fill="rgba(255,255,255,.95)" font-size="5.5" font-family="Syne,sans-serif" font-weight="700">VANCE</text><text x="46" y="44" text-anchor="middle" fill="#d4a843" font-size="4.5" font-family="Syne,sans-serif" font-weight="700">2028</text><text x="46" y="52" text-anchor="middle" fill="rgba(255,255,255,.38)" font-size="3.5" font-family="Syne,sans-serif">MAKE AMERICA GREATER</text></svg>
+              <div class="shirt-name">Classic Tee</div><div class="shirt-price">$29</div>
+            </button>
+            <button class="shirt-item" onclick="openShirtDrawer('s2')">
+              <svg viewBox="0 0 120 80"><path d="M22 8 L6 22 L18 26 L16 62 L76 62 L74 26 L86 22 L70 8 L58 15 Q42 22 32 15 Z" fill="#7f1d1d" stroke="#b91c1c" stroke-width="1"/><text x="46" y="34" text-anchor="middle" fill="rgba(255,255,255,.9)" font-size="5" font-family="Syne,sans-serif" font-weight="700">HILLBILLY</text><text x="46" y="43" text-anchor="middle" fill="#d4a843" font-size="5" font-family="Syne,sans-serif" font-weight="700">ELEGY</text><text x="46" y="52" text-anchor="middle" fill="rgba(255,255,255,.38)" font-size="3.5" font-family="Syne,sans-serif">VANCE 2028</text></svg>
+              <div class="shirt-name">Elegy Tee</div><div class="shirt-price">$34</div>
+            </button>
+            <button class="shirt-item" onclick="openShirtDrawer('s3')">
+              <svg viewBox="0 0 120 80"><path d="M18 8 L2 22 L14 26 L12 68 L80 68 L78 26 L90 22 L74 8 L62 15 Q46 22 36 15 Z" fill="#991b1b" stroke="#b91c1c" stroke-width="1"/><text x="46" y="40" text-anchor="middle" fill="rgba(255,255,255,.9)" font-size="5" font-family="Syne,sans-serif" font-weight="700">JD VANCE</text><text x="46" y="49" text-anchor="middle" fill="#d4a843" font-size="4" font-family="Syne,sans-serif">2028 HOODIE</text></svg>
+              <div class="shirt-name">Hoodie</div><div class="shirt-price">$54</div>
+            </button>
+          </div>
+          <div class="shirt-cta">
+            <button class="btn-lg btn-red" style="flex:1;justify-content:center" onclick="openShirtDrawer('all')">
+              <svg viewBox="0 0 24 24"><path d="M19 7h-14v13a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-13zm-7-4a3 3 0 0 0-3 3h6a3 3 0 0 0-3-3zm-5 3a5 5 0 0 1 10 0"/></svg>
+              Browse on Spreadshirt
+            </button>
+            <a href="https://www.spreadshirt.com" target="_blank" rel="noopener" class="btn-lg btn-ghost" style="padding:16px 18px" title="Open Spreadshirt">↗</a>
+          </div>
+          <div class="trust-pills">
+            <span class="trust-pill">🖨️ Print on Demand</span>
+            <span class="trust-pill">✂️ Ethical Materials</span>
+            <span class="trust-pill">🌍 Ships Worldwide</span>
+            <span class="trust-pill">↩️ 30-Day Returns</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── DONATE CARD ── -->
+      <div class="sup-card sup-donate">
+        <div class="sup-card-top">
+          <div class="sup-card-icon icon-donate">☕</div>
+          <div class="sup-card-tag tag-orange">Donate · Buy Me a Coffee</div>
+          <h2>Fund the Movement</h2>
+          <p>Every dollar fuels rallies, ads, and grassroots outreach across all 50 states. Donate securely via Buy Me a Coffee.</p>
+        </div>
+        <div class="sup-card-body">
+          <div class="donate-tiers">
+            <a href="https://buymeacoffee.com/homeer/membership" target="_blank" rel="noopener" class="d-tier">
+              <div class="d-tier-left"><div class="d-tier-icon">☕</div><div class="d-tier-info"><strong>Buy a Coffee</strong><span>Small but powerful show of support</span></div></div>
+              <div class="d-tier-right"><div class="d-tier-amount">$5</div><span class="d-tier-arrow">›</span></div>
+            </a>
+            <a href="https://studio.buymeacoffee.com/membership/levels" target="_blank" rel="noopener" class="d-tier">
+              <div class="d-tier-left"><div class="d-tier-icon">🦅</div><div class="d-tier-info"><strong>Patriot Supporter</strong><span>Fund a local campaign event</span></div></div>
+              <div class="d-tier-right"><div class="d-tier-amount">$25</div><span class="d-tier-arrow">›</span></div>
+            </a>
+            <a href="https://studio.buymeacoffee.com/membership/levels" target="_blank" rel="noopener" class="d-tier">
+              <div class="d-tier-left"><div class="d-tier-icon">🇺🇸</div><div class="d-tier-info"><strong>Freedom Champion</strong><span>Sponsor a campaign ad spot</span></div></div>
+              <div class="d-tier-right"><div class="d-tier-amount">$100</div><span class="d-tier-arrow">›</span></div>
+            </a>
+            <a href="https://studio.buymeacoffee.com/membership/levels" target="_blank" rel="noopener" class="d-tier">
+              <div class="d-tier-left"><div class="d-tier-icon">⭐</div><div class="d-tier-info"><strong>Founding Donor</strong><span>Named on our Founders Wall</span></div></div>
+              <div class="d-tier-right"><div class="d-tier-amount">$500</div><span class="d-tier-arrow">›</span></div>
+            </a>
+          </div>
+          <a href="https://studio.buymeacoffee.com/membership/levels" target="_blank" rel="noopener" class="bmc-btn">☕ Donate via Buy Me a Coffee</a>
+          <p class="bmc-note">Replace <code>YOUR_PAGE</code> with your Buy Me a Coffee username in <code>index.html</code></p>
+        </div>
+      </div>
+
+      <!-- ── CAMPAIGN CARD ── -->
+      <div class="sup-card sup-campaign">
+        <div class="sup-card-top">
+          <div class="sup-card-icon icon-campaign">📣</div>
+          <div class="sup-card-tag tag-gold">Grassroots Campaign</div>
+          <h2>Campaign for JD Vance</h2>
+          <p>Help us reach every voter in America. Volunteer, canvass, host events, and mobilize your community for the movement.</p>
+        </div>
+        <div class="sup-card-body">
+          <div class="c-steps">
+            <div class="c-step"><div class="c-step-num">01</div><div class="c-step-text"><strong>Download the Campaign Kit</strong><span>Posters, digital assets &amp; talking points for your community.</span></div></div>
+            <div class="c-step"><div class="c-step-num">02</div><div class="c-step-text"><strong>Host a Local Event</strong><span>Town hall, viewing party, or neighborhood canvass — we provide the toolkit.</span></div></div>
+            <div class="c-step"><div class="c-step-num">03</div><div class="c-step-text"><strong>Register Voters</strong><span>Use our portal to help supporters get on the voter roll in your area.</span></div></div>
+            <div class="c-step"><div class="c-step-num">04</div><div class="c-step-text"><strong>Phone &amp; Door Canvass</strong><span>Join thousands making calls and knocking doors every single day.</span></div></div>
+          </div>
+          <a href="mailto:volunteer@vance2028.com" class="btn-lg btn-gold" style="justify-content:center;width:100%">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Join the Campaign
+          </a>
+        </div>
+      </div>
+
+      <!-- ── SHARE CARD ── -->
+      <div class="sup-card sup-share">
+        <div class="sup-card-top">
+          <div class="sup-card-icon icon-share">🔗</div>
+          <div class="sup-card-tag tag-blue">Share the Movement</div>
+          <h2>Spread the Word</h2>
+          <p>Share JD Vance's campaign with your network. 10 seconds of your time reaches hundreds of potential voters.</p>
+        </div>
+        <div class="sup-card-body">
+          <div class="share-grid">
+            <a href="https://twitter.com/intent/tweet?text=I+support+JD+Vance+for+President+2028!+Make+America+Greater!+%23Vance2028+%23MakeAmericaGreater&url=https://vance2028.com" target="_blank" rel="noopener" class="share-btn s-tw">
+              <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.402 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.258 5.63 5.906-5.63z"/></svg>X / Twitter</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://vance2028.com" target="_blank" rel="noopener" class="share-btn s-fb">
+              <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a>
+            <a href="https://api.whatsapp.com/send?text=I+support+JD+Vance+for+President+2028!+Make+America+Greater!+https://vance2028.com" target="_blank" rel="noopener" class="share-btn s-wa">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>WhatsApp</a>
+            <a href="https://t.me/share/url?url=https://vance2028.com&text=JD+Vance+2028+—+Make+America+Greater!" target="_blank" rel="noopener" class="share-btn s-tg">
+              <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>Telegram</a>
+            <a href="mailto:?subject=Support JD Vance 2028 — Make America Greater&body=Join me in supporting JD Vance for President 2028! Make America Greater! https://vance2028.com" class="share-btn s-em">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>Email</a>
+            <button class="share-btn s-cp" onclick="copyLink()">
+              <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+              <span id="copyText">Copy Link</span>
+            </button>
+          </div>
+          <div class="share-copy-row">
+            <input type="text" id="shareUrl" value="https://vance2028.com" readonly>
+            <button onclick="copyLink()">Copy</button>
+          </div>
+        </div>
+      </div>
+    </div><!-- /support-grid -->
+
+    <!-- ALL AT ONCE -->
+    <div class="all-panel">
+      <div class="all-panel-star">★</div>
+      <h3>Support JD Vance — All at Once</h3>
+      <p>You don't have to choose one. Buy a shirt, donate, volunteer, and share — every action stacks and amplifies the Make America Greater movement.</p>
+      <div class="all-panel-grid">
+        <a href="#" onclick="openShirtDrawer('all');return false;" class="fp-action"><div class="fp-icon">👕</div><div class="fp-label">Buy a Shirt</div><div class="fp-desc">Via Spreadshirt</div></a>
+        <a href="https://studio.buymeacoffee.com/membership/levels" target="_blank" rel="noopener" class="fp-action"><div class="fp-icon">☕</div><div class="fp-label">Donate</div><div class="fp-desc">Buy Me a Coffee</div></a>
+        <a href="mailto:volunteer@vance2028.com" class="fp-action"><div class="fp-icon">📣</div><div class="fp-label">Volunteer</div><div class="fp-desc">Join the grassroots</div></a>
+        <a href="#" onclick="copyLink();return false;" class="fp-action"><div class="fp-icon">🔗</div><div class="fp-label">Copy Link</div><div class="fp-desc">Share the campaign</div></a>
+        <a href="https://twitter.com/intent/tweet?text=JD+Vance+2028+Make+America+Greater!+%23Vance2028&url=https://vance2028.com" target="_blank" rel="noopener" class="fp-action"><div class="fp-icon">𝕏</div><div class="fp-label">Post on X</div><div class="fp-desc">Tweet your support</div></a>
+        <a href="https://api.whatsapp.com/send?text=Support+JD+Vance+2028!+Make+America+Greater!+https://vance2028.com" target="_blank" rel="noopener" class="fp-action"><div class="fp-icon">💬</div><div class="fp-label">WhatsApp</div><div class="fp-desc">Tell your contacts</div></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ POLL ══════════════════════ -->
+<section class="poll-sec" id="poll">
+  <div class="wrap">
+    <div class="poll-header">
+      <div class="ew" style="justify-content:center"><div class="ew-l"></div><span>Public Poll</span></div>
+      <h2 class="sh" style="text-align:center">Do You Support <em>JD Vance?</em></h2>
+      <p class="sp" style="margin:0 auto;text-align:center">A non-binding public opinion poll. Every vote shows momentum for the movement.</p>
+    </div>
+    <div class="poll-card">
+      <div class="poll-card-top">
+        <div class="poll-pct" id="pollPct">—</div>
+        <div class="poll-lbl" id="pollLbl">support JD Vance for President</div>
+        <p class="poll-count" id="pollCount">Be the first to vote!</p>
+      </div>
+      <div class="poll-bar-wrap"><div class="poll-bar-fill" id="pollFill" style="width:0%"></div></div>
+      <div class="poll-btns">
+        <button class="pvb pvb-yes" onclick="castVote(true)">🦅 Yes — Make America Greater!</button>
+        <button class="pvb pvb-no"  onclick="castVote(false)">Still undecided</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ FOOTER ══════════════════════ -->
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="foot-logo">
+        <div class="foot-logo-emblem">🦅</div>
+        <div class="foot-logo-text">Vance <em>2028</em></div>
+      </div>
+      <p>Paid for by the Vance for President Committee. Update all placeholder content, emails, and links before going live.</p>
+      <div class="foot-socials">
+        <a href="#" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.402 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.258 5.63 5.906-5.63z"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+      </div>
+    </div>
+    <div class="foot-col"><h4>Campaign</h4><ul><li><a href="#about">About JD Vance</a></li><li><a href="#platform">Platform</a></li><li><a href="#poll">Public Poll</a></li><li><a href="mailto:press@vance2028.com">Press Kit</a></li></ul></div>
+    <div class="foot-col"><h4>Support</h4><ul><li><a href="#" onclick="openShirtDrawer('all');return false">Buy Merchandise</a></li><li><a href="https://studio.buymeacoffee.com/membership/levels" target="_blank" rel="noopener">Donate</a></li><li><a href="mailto:volunteer@vance2028.com">Volunteer</a></li><li><a href="#support">Share Campaign</a></li></ul></div>
+    <div class="foot-col"><h4>Contact</h4><ul><li><a href="mailto:info@vance2028.com">info@vance2028.com</a></li><li><a href="mailto:press@vance2028.com">Press Enquiries</a></li><li><a href="mailto:volunteer@vance2028.com">Volunteer HQ</a></li></ul></div>
+  </div>
+  <div class="foot-bottom">
+    <p>© 2025 Vance for President Committee. All rights reserved.</p>
+    <p class="foot-disclaimer">⚠️ Update all placeholder content before going live.</p>
+  </div>
+</footer>
+
+<!-- ══════════════════════ FLOAT BAR ══════════════════════ -->
+<div class="float-bar">
+  <a href="#" onclick="openShirtDrawer('all');return false;" class="fb-btn fb-red">
+    <svg viewBox="0 0 24 24"><path d="M19 7h-14v13a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-13zm-7-4a3 3 0 0 0-3 3h6a3 3 0 0 0-3-3zm-5 3a5 5 0 0 1 10 0"/></svg>
+    <span>Buy Shirt</span>
+  </a>
+  <a href="https://studio.buymeacoffee.com/membership/levels" target="_blank" rel="noopener" class="fb-btn fb-gold">
+    <svg viewBox="0 0 24 24"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/></svg>
+    <span>Donate</span>
+  </a>
+  <div class="fb-div"></div>
+  <button class="fb-btn fb-ghost" onclick="copyLink()">
+    <svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>
+    <span>Share</span>
+  </button>
+</div>
+
+<!-- ══════════════════════ SPREADSHIRT DRAWER ══════════════════════ -->
+<div class="ss-overlay" id="ssOverlay" onclick="closeDrawer()"></div>
+<div class="ss-drawer" id="ssDrawer">
+  <div class="ss-handle"></div>
+  <div class="ss-head">
+    <div class="ss-head-l">
+      <div class="ss-head-icon">👕</div>
+      <div><h3 id="ssTitle">Vance 2028 Merchandise</h3><p>Powered by Spreadshirt · Ships worldwide</p></div>
+    </div>
+    <button class="ss-close" onclick="closeDrawer()">✕</button>
+  </div>
+  <div class="ss-tabs">
+    <button class="ss-tab active" id="tab-embed"  onclick="switchTab('embed')">🛒 Shop in Page</button>
+    <button class="ss-tab"        id="tab-direct" onclick="switchTab('direct')">🔗 Direct Links</button>
+    <button class="ss-tab"        id="tab-setup"  onclick="switchTab('setup')">⚙️ Setup Guide</button>
+  </div>
+  <div class="ss-body">
+    <div id="pane-embed">
+      <div class="ss-iframe-box">
+        <div class="ss-placeholder" id="ssPlaceholder">
+          <div class="pl-icon">🖨️</div>
+          <h4>Connect Your Spreadshirt Store</h4>
+          <p>Open the Setup Guide tab, paste your Spreadshirt shop URL, and your live store loads here — customers browse, pick sizes, and checkout without leaving this page.</p>
+          <button onclick="switchTab('setup')" class="btn-lg btn-red" style="margin-top:12px">Go to Setup Guide →</button>
+        </div>
+        <iframe id="ssIframe" src="" title="Vance 2028 Campaign Store" style="display:none" loading="lazy"></iframe>
+      </div>
+    </div>
+    <div id="pane-direct" style="display:none">
+      <p class="ss-direct-intro">Click any product to open it directly on Spreadshirt. Customers pick size, colour, and quantity, then checkout securely.</p>
+      <div class="ss-direct-grid" id="ssDirectGrid"></div>
+      <p class="ss-direct-note">💡 Replace the <code>spreadshirtUrl</code> values in the PRODUCTS array at the bottom of <code>index.html</code> with your real product URLs from Spreadshirt.</p>
+    </div>
+    <div id="pane-setup" style="display:none">
+      <div class="ss-setup-box">
+        <h5>⚙️ Connect Spreadshirt in 4 steps</h5>
+        <ol>
+          <li><strong>Create your free seller account</strong> at <a href="https://www.spreadshirt.com/sell" target="_blank" rel="noopener">spreadshirt.com/sell</a></li>
+          <li><strong>Design your campaign products</strong> — upload the Vance 2028 logo and create shirts, hoodies, and caps in their designer.</li>
+          <li><strong>Copy your shop URL</strong> — looks like <code>https://jdvance2028.myspreadshop.com</code> — paste it below to load your live store above.</li>
+          <li><strong>Update product links</strong> — open each product in your Spreadshirt shop, copy its URL, and replace the placeholder <code>spreadshirtUrl</code> values in the PRODUCTS array inside <code>index.html</code>.</li>
+        </ol>
+      </div>
+      <div class="ss-url-section">
+        <label for="ssUrlInput">Your Spreadshirt Shop URL</label>
+        <div class="ss-url-row">
+          <input type="url" id="ssUrlInput" placeholder="https://jdvance2028.myspreadshop.com">
+          <button onclick="applyUrl()">Load Shop →</button>
+        </div>
+        <p class="ss-url-note">Saved in your browser automatically. Switch to "Shop in Page" to see your live store.</p>
+      </div>
+      <div class="ss-success-note"><strong>✅ Zero coding required.</strong> Paste your URL and click Load Shop. Spreadshirt handles payments, printing, and shipping — you earn a commission on every sale.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ TIMED ENGAGEMENT POPUP ══════════════════════ -->
+<div class="tp-overlay" id="tpOverlay" onclick="tpOutsideClick(event)">
+  <div class="tp-modal" id="tpModal">
+
+    <div class="tp-accent"></div>
+    <button class="tp-close" onclick="dismissPopup()" aria-label="Close">✕</button>
+
+    <!-- Countdown ring -->
+    <div class="tp-timer-wrap">
+      <div class="tp-ring">
+        <svg width="72" height="72" viewBox="0 0 72 72">
+          <circle class="tp-ring-bg" cx="36" cy="36" r="30"/>
+          <circle class="tp-ring-fill" id="tpRingFill" cx="36" cy="36" r="30"/>
+        </svg>
+        <div class="tp-ring-num" id="tpCountNum">30</div>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="tp-body">
+      <span class="tp-flag">🦅🇺🇸🦅</span>
+      <div class="tp-eyebrow">Vance 2028 · Make America Greater</div>
+      <h2 class="tp-h">Join the <em>Movement</em><br>— Take Action Now</h2>
+      <p class="tp-sub">Every shirt sold, every dollar donated, and every share spreads the Make America Greater message to a new voter. What will you do?</p>
+
+      <div class="tp-actions">
+        <!-- Shop -->
+        <a href="#" onclick="dismissPopup();openShirtDrawer('all');return false;" class="tp-btn tp-btn-red">
+          <svg viewBox="0 0 24 24"><path d="M19 7h-14v13a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-13zm-7-4a3 3 0 0 0-3 3h6a3 3 0 0 0-3-3zm-5 3a5 5 0 0 1 10 0"/></svg>
+          <span>👕 Buy Official Campaign Shirts</span>
+          <span class="tp-btn-arrow">›</span>
+        </a>
+        <!-- Donate -->
+        <a href="https://studio.buymeacoffee.com/membership/levels" target="_blank" rel="noopener" onclick="dismissPopup()" class="tp-btn tp-btn-gold">
+          <svg viewBox="0 0 24 24"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/></svg>
+          <span>☕ Donate via Buy Me a Coffee</span>
+          <span class="tp-btn-arrow">›</span>
+        </a>
+        <!-- WhatsApp share -->
+        <a href="https://api.whatsapp.com/send?text=I+support+JD+Vance+for+President+2028!+Make+America+Greater!+https://vance2028.com" target="_blank" rel="noopener" onclick="dismissPopup()" class="tp-btn tp-btn-green">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          <span>💬 Share on WhatsApp</span>
+          <span class="tp-btn-arrow">›</span>
+        </a>
+        <!-- Volunteer -->
+        <a href="mailto:volunteer@vance2028.com" onclick="dismissPopup()" class="tp-btn tp-btn-ghost">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <span>📣 Join as a Volunteer</span>
+          <span class="tp-btn-arrow">›</span>
+        </a>
+      </div>
+
+      <!-- Quick share pills -->
+      <div class="tp-share-row">
+        <a href="https://twitter.com/intent/tweet?text=JD+Vance+2028+—+Make+America+Greater!+%23Vance2028&url=https://vance2028.com" target="_blank" rel="noopener" onclick="dismissPopup()" class="tp-share-pill tp-s-tw">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.402 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.258 5.63 5.906-5.63z"/></svg>
+          X / Twitter
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://vance2028.com" target="_blank" rel="noopener" onclick="dismissPopup()" class="tp-share-pill tp-s-fb">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          Facebook
+        </a>
+        <button onclick="tpCopyLink()" class="tp-share-pill tp-s-cp">
+          <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+          <span id="tpCopyLbl">Copy Link</span>
+        </button>
+      </div>
+
+      <button class="tp-dismiss" onclick="dismissPopup()">No thanks, I'll continue browsing</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ JAVASCRIPT ══════════════════════ -->
+<script>
+// ═══════════════════════════════════════════════════
+//  ★ CONFIG — UPDATE THESE BEFORE GOING LIVE ★
+// ═══════════════════════════════════════════════════
+const SITE_URL = 'https://vance2028.com'; // ← your live domain
+const BMC_URL  = 'https://studio.buymeacoffee.com/membership/levels'; // ← your Buy Me a Coffee page
+const SS_SHOP  = 'https://jdvance2028.myspreadshop.com/jd+vance+2028?idea=6ac3728e215f6e3edb93c411'; // ← your Spreadshirt shop URL e.g. 'https://your-store.myspreadshop.com'
+
+// Spreadshirt products — replace spreadshirtUrl with real product URLs from your Spreadshirt dashboard
+const PRODUCTS = [
+  { id:'s1', name:'Vance 2028 Classic Tee',       price:'$29', spreadshirtUrl: 'https://www.spreadshirt.com' },
+  { id:'s2', name:'Hillbilly Elegy Tee',           price:'$34', spreadshirtUrl: 'https://www.spreadshirt.com' },
+  { id:'s3', name:'Vance 2028 Hoodie',             price:'$54', spreadshirtUrl: 'https://www.spreadshirt.com' },
+  { id:'s4', name:'Make America Greater Cap',       price:'$24', spreadshirtUrl: 'https://www.spreadshirt.com' },
+  { id:'s5', name:'Ohio Made Tee',                 price:'$29', spreadshirtUrl: 'https://www.spreadshirt.com' },
+  { id:'s6', name:'Vance 2028 Long Sleeve',        price:'$38', spreadshirtUrl: 'https://www.spreadshirt.com' },
+];
+// ═══════════════════════════════════════════════════
+
+// ── CURSOR ──
+const dot=document.getElementById('dot'),ring=document.getElementById('ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
+(function anim(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim)})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.opacity='.4'});
+  el.addEventListener('mouseleave',()=>{ring.style.width='32px';ring.style.height='32px';ring.style.opacity='1'});
+});
+
+// ── SCROLL: PROGRESS + NAV ──
+window.addEventListener('scroll',()=>{
+  const s=window.scrollY,h=document.body.scrollHeight-window.innerHeight;
+  document.getElementById('prog').style.width=(s/h*100)+'%';
+  document.getElementById('nav').classList.toggle('scrolled',s>40);
+},{passive:true});
+
+// ── MOBILE MENU ──
+function toggleMenu(){
+  const m=document.getElementById('mob'),h=document.getElementById('ham');
+  const open=m.classList.toggle('open');
+  h.classList.toggle('open',open);
+  document.body.style.overflow=open?'hidden':'';
+}
+function closeMob(){
+  document.getElementById('mob').classList.remove('open');
+  document.getElementById('ham').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+// ── HERO STARS ──
+(function(){
+  const w=document.getElementById('heroStars');
+  for(let i=0;i<55;i++){
+    const s=document.createElement('div');s.className='hstar';
+    s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${2+Math.random()*5}s;--dl:${-Math.random()*7}s`;
+    w.appendChild(s);
+  }
+})();
+
+// ── POLL ──
+let vYes=0,vNo=0;
+function castVote(yes){
+  if(yes)vYes++;else vNo++;
+  const t=vYes+vNo,p=t===0?0:Math.round(vYes/t*100);
+  document.getElementById('pollPct').textContent=p+'%';
+  document.getElementById('pollFill').style.width=p+'%';
+  document.getElementById('pollCount').textContent=`${t} poll vote${t!==1?'s':''} cast`;
+  document.querySelectorAll('.pvb').forEach(b=>{b.disabled=true});
+  setTimeout(()=>document.querySelectorAll('.pvb').forEach(b=>b.disabled=false),2000);
+}
+
+// ── SHARE / COPY ──
+function copyLink(){
+  navigator.clipboard.writeText(document.getElementById('shareUrl')?.value||SITE_URL)
+    .then(()=>{const t=document.getElementById('copyText');if(t){const o=t.textContent;t.textContent='✓ Copied!';setTimeout(()=>t.textContent=o,2200);}})
+    .catch(()=>{const i=document.getElementById('shareUrl');if(i){i.select();document.execCommand('copy');}});
+}
+
+// ── SPREADSHIRT DRAWER ──
+function openShirtDrawer(id){
+  const p=PRODUCTS.find(x=>x.id===id);
+  document.getElementById('ssTitle').textContent=p?p.name:'Vance 2028 Merchandise';
+  buildDirectLinks(p);
+  loadIframe(p);
+  document.getElementById('ssOverlay').classList.add('open');
+  document.getElementById('ssDrawer').classList.add('open');
+  document.body.style.overflow='hidden';
+  switchTab('embed');
+}
+function closeDrawer(){
+  document.getElementById('ssOverlay').classList.remove('open');
+  document.getElementById('ssDrawer').classList.remove('open');
+  document.body.style.overflow='';
+}
+// Escape is handled in the popup section below
+
+function switchTab(name){
+  ['embed','direct','setup'].forEach(t=>{
+    document.getElementById('pane-'+t).style.display=t===name?'':'none';
+    document.getElementById('tab-'+t).classList.toggle('active',t===name);
+  });
+}
+function loadIframe(prod){
+  const url=SS_SHOP||localStorage.getItem('ssShopUrl')||'';
+  const iframe=document.getElementById('ssIframe'),ph=document.getElementById('ssPlaceholder');
+  if(url){
+    const src=prod&&prod.spreadshirtUrl&&prod.spreadshirtUrl!=='https://www.spreadshirt.com'?prod.spreadshirtUrl:url;
+    iframe.src=src;iframe.style.display='block';ph.style.display='none';
+  }else{iframe.style.display='none';ph.style.display='flex';}
+}
+function applyUrl(){
+  const url=document.getElementById('ssUrlInput').value.trim();
+  if(!url)return;
+  localStorage.setItem('ssShopUrl',url);
+  loadIframe(null);
+  switchTab('embed');
+}
+function buildDirectLinks(active){
+  const g=document.getElementById('ssDirectGrid');g.innerHTML='';
+  const list=active?[active,...PRODUCTS.filter(p=>p.id!==active.id)]:PRODUCTS;
+  list.forEach(p=>{
+    const a=document.createElement('a');
+    a.href=p.spreadshirtUrl;a.target='_blank';a.rel='noopener';a.className='ss-dc';
+    a.innerHTML=`<svg viewBox="0 0 120 80"><path d="M22 8 L6 22 L18 26 L16 62 L76 62 L74 26 L86 22 L70 8 L58 15 Q42 22 32 15 Z" fill="#b91c1c" stroke="#dc2626" stroke-width="1"/><text x="46" y="36" text-anchor="middle" fill="rgba(255,255,255,.9)" font-size="5.5" font-family="Syne,sans-serif" font-weight="700">VANCE</text><text x="46" y="45" text-anchor="middle" fill="#d4a843" font-size="4.5" font-family="Syne,sans-serif" font-weight="700">2028</text></svg><div class="ss-dc-name">${p.name}</div><div class="ss-dc-price">${p.price}</div><div class="ss-dc-cta">Buy on Spreadshirt →</div>`;
+    g.appendChild(a);
+  });
+}
+const sv=localStorage.getItem('ssShopUrl');if(sv)document.getElementById('ssUrlInput').value=sv;
+
+// ── ESCAPE ──
+document.addEventListener('keydown',e=>e.key==='Escape'&&(dismissPopup(),closeMob(),closeDrawer()));
+
+// ══════════════════════════════════════════════
+//  TIMED ENGAGEMENT POPUP
+//  Fires 30 seconds after page load (one time per session)
+// ══════════════════════════════════════════════
+const TP_DELAY   = 3;   // seconds before popup appears — change freely
+const TP_SESSION = 'tp_shown'; // sessionStorage key so it only shows once per visit
+
+let tpTimer      = null;
+let tpCountdown  = null;
+let tpSecondsLeft = TP_DELAY;
+
+function initTimedPopup(){
+  // Don't show again in same browser tab session
+  if(sessionStorage.getItem(TP_SESSION)) return;
+
+  tpTimer = setTimeout(()=>{
+    showTimedPopup();
+  }, TP_DELAY * 1000);
+}
+
+function showTimedPopup(){
+  sessionStorage.setItem(TP_SESSION,'1');
+  const overlay = document.getElementById('tpOverlay');
+  overlay.classList.add('open');
+  document.body.style.overflow='hidden';
+
+  // Start the countdown ring animation
+  tpSecondsLeft = 30; // ring always counts 30 seconds regardless of delay
+  updateRing(tpSecondsLeft);
+  tpCountdown = setInterval(()=>{
+    tpSecondsLeft--;
+    updateRing(tpSecondsLeft);
+    if(tpSecondsLeft <= 0){
+      clearInterval(tpCountdown);
+      dismissPopup();
+    }
+  },1000);
+}
+
+function updateRing(s){
+  const total   = 30;
+  const circumf = 188.5; // 2 * π * 30
+  const offset  = circumf * (1 - s / total);
+  const fill    = document.getElementById('tpRingFill');
+  const num     = document.getElementById('tpCountNum');
+  if(fill) fill.style.strokeDashoffset = offset;
+  if(num)  num.textContent = Math.max(0, s);
+}
+
+function dismissPopup(){
+  clearInterval(tpCountdown);
+  clearTimeout(tpTimer);
+  const overlay = document.getElementById('tpOverlay');
+  overlay.classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function tpOutsideClick(e){
+  if(e.target === document.getElementById('tpOverlay')) dismissPopup();
+}
+
+function tpCopyLink(){
+  navigator.clipboard.writeText('https://vance2028.com')
+    .then(()=>{
+      const l=document.getElementById('tpCopyLbl');
+      if(l){const o=l.textContent;l.textContent='✓ Copied!';setTimeout(()=>l.textContent=o,2000);}
+    })
+    .catch(()=>{});
+}
+
+// Kick off the timer when the page has fully loaded
+window.addEventListener('load', initTimedPopup);
+
+// ── FADE IN ON SCROLL ──
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';io.unobserve(e.target);}
+}),{threshold:.08});
+document.querySelectorAll('.sup-card,.about-fact,.plat-cell,.fp-action,.d-tier,.c-step').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(22px)';
+  el.style.transition='opacity .55s ease,transform .55s ease';
+  io.observe(el);
+});
+</script>
+</body>
+</html>
