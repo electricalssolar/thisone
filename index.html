@@ -77,7 +77,7 @@ nav.scrolled{background:rgba(5,4,10,.96);backdrop-filter:blur(24px);border-botto
 ───────────────────────────────────── */
 .hero{position:relative;min-height:100vh;padding-top:var(--nav-h);overflow:hidden;display:flex;align-items:center}
 .hero-bg{position:absolute;inset:0;z-index:0}
-.hero-bg-img{position:absolute;inset:0;background:url('https://images2.imgbox.com/f9/56/05VhHhNg_o.jpg') center/cover no-repeat;filter:grayscale(55%) contrast(1.15) brightness(.9)}
+.hero-bg-img{position:absolute;inset:0;background:url('https://i.postimg.cc/MG8btnfx/Untitled-October-05-2026-at-05-15-01-2.jpg') center/cover no-repeat;filter:grayscale(55%) contrast(1.15) brightness(.9)}
 .hero-bg-gradient{position:absolute;inset:0;background:linear-gradient(110deg,rgba(5,4,10,.97) 0%,rgba(110,10,10,.85) 55%,rgba(5,4,10,.7) 100%)}
 .hero-grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(185,28,28,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(185,28,28,.055) 1px,transparent 1px);background-size:76px 76px;mask-image:radial-gradient(ellipse 70% 80% at 5% 50%,black,transparent)}
 .hero-stars-wrap{position:absolute;inset:0;z-index:1;overflow:hidden}
@@ -273,6 +273,32 @@ section{padding:clamp(80px,10vw,140px) clamp(20px,5vw,64px);position:relative;z-
 .fp-icon{font-size:1.8rem}
 .fp-label{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--white)}
 .fp-desc{font-size:.68rem;color:var(--muted);text-align:center;line-height:1.4}
+.about-img-box {
+  position: relative;
+  min-height: 500px;
+  background-image: url('https://i.postimg.cc/Dz8JrFB3/jd.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.about-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0.15)
+  );
+  z-index: 1;
+}
+
+.about-monogram,
+.about-badge {
+  position: relative;
+  z-index: 2;
+}
 
 /* ─────────────────────────────────────
    POLL
@@ -550,16 +576,16 @@ footer{background:var(--surface);border-top:1px solid var(--red-border);padding:
   <div class="wrap">
     <div class="about-grid">
       <div class="about-visual">
-        <div class="about-img-box">
-          <div class="about-monogram">JDV</div>
-          <div class="about-overlay"></div>
-          <div class="about-badge">
-            <div class="about-badge-party">🔴 Republican Party</div>
-            <div class="about-badge-name">JD Vance</div>
-            <div class="about-badge-state">US Vice President</div>
-          </div>
-        </div>
-      </div>
+  <div class="about-img-box">
+    <div class="about-monogram">JDV</div>
+    <div class="about-overlay"></div>
+    <div class="about-badge">
+      <div class="about-badge-party">🔴 Republican Party</div>
+      <div class="about-badge-name">JD Vance</div>
+      <div class="about-badge-state">US Vice President</div>
+    </div>
+  </div>
+</div>
       <div>
         <div class="ew"><div class="ew-l"></div><span>The Candidate</span></div>
         <h2 class="sh">From Middletown<br>to the <em>White House</em></h2>
@@ -646,7 +672,7 @@ footer{background:var(--surface);border-top:1px solid var(--red-border);padding:
               <svg viewBox="0 0 24 24"><path d="M19 7h-14v13a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-13zm-7-4a3 3 0 0 0-3 3h6a3 3 0 0 0-3-3zm-5 3a5 5 0 0 1 10 0"/></svg>
               Browse on Spreadshirt
             </button>
-            <a href="https://www.spreadshirt.com" target="_blank" rel="noopener" class="btn-lg btn-ghost" style="padding:16px 18px" title="Open Spreadshirt">↗</a>
+          
           </div>
           <div class="trust-pills">
             <span class="trust-pill">🖨️ Print on Demand</span>
@@ -685,7 +711,7 @@ footer{background:var(--surface);border-top:1px solid var(--red-border);padding:
             </a>
           </div>
           <a href="https://studio.buymeacoffee.com/membership/levels" target="_blank" rel="noopener" class="bmc-btn">☕ Donate via Buy Me a Coffee</a>
-          <p class="bmc-note">Replace <code>YOUR_PAGE</code> with your Buy Me a Coffee username in <code>index.html</code></p>
+        
         </div>
       </div>
 
